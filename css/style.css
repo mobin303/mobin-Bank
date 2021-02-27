@@ -1,0 +1,31 @@
+body{
+    padding: 100px;
+}
+
+.info{
+    text-align: center;
+}
+.login{
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px  rgba(171, 182, 135, 0.856);
+}
+#second-area{
+    display: none;
+}
+.Deposit{
+ background-color: blueviolet;
+}
+.Withdrow{
+ background-color: lightsalmon;
+}
+.Balanch{
+background-color: orange;
+}
+.status{
+    margin: 0 15px;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+}

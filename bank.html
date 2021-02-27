@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobin Bank</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="first-title">
+        <h1 class="info">Welcom to Mobin Bank </h1>
+        <div class=" login">
+            <h3>Login</h3>
+            <input type="text" class="form-control" placeholder="Email">
+            <br>
+            <input type="password" class="form-control" placeholder="password">
+            <br>
+            <input id="enter" type="button" class="btn btn-success" value="Enter">
+        </div>
+    </div>
+    <div id="second-area">
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="Deposit status">
+                    <h5>Deposit</h5>
+                    <h1>$ <span id="currentDeposit"> 00</span></h1>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="Withdrow status">
+                    <h5>Withdrow</h5>
+                    <h1>$ <span id="currentWithdrow"> 00</span></h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="Balanch status">
+                    <h5>Balanch</h5>
+                    <h1>$ <span id="currentBalance">1200</span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 ">
+                    <div class="login">
+                        <h5>Deposit</h5>
+                        <input id="depositAmount" type="text" class="form-control"
+                            placeholder="$ Amound is Your Wnat to withdrow">
+                        <br>
+                        <button id="addDeposit" class="btn btn-success">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="login">
+                        <h5> Withdrow </h5>
+                        <input id="withdrowAmount" type="text" class="form-control"
+                            placeholder="$ Amound is Your Want to Deposit">
+                        <br>
+                        <button id="addWithdrow" class="btn btn-success">Withdrow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const enterBtn = document.getElementById("enter");
+        enterBtn.addEventListener('click', function () {
+            const displayArea = document.getElementById("first-title");
+            displayArea.style.display = 'none';
+            const secondArea = document.getElementById('second-area');
+            secondArea.style.display = 'block';
+        })
+
+        const addDeposit = document.getElementById('addDeposit');
+        addDeposit.addEventListener('click', function () {
+            const depositAmount = document.getElementById('depositAmount').value;
+            const DepositNumber = parseFloat(depositAmount);
+
+         
+
+
+            // const currentDeposit=document.getElementById('currentDeposit').innerText;
+            // const currentDepositNumber=parseFloat(currentDeposit);
+            // const totalDeposit=currentDepositNumber+ DepositNumber;
+            // document.getElementById('currentDeposit').innerText=totalDeposit;
+
+            updateSpan('currentBalance', DepositNumber);
+
+            updateSpan('currentDeposit', DepositNumber);
+          
+
+            document.getElementById('depositAmount').value = '';
+        })
+        const addWithdrow = document.getElementById('addWithdrow');
+        addWithdrow.addEventListener('click', function (){
+            const withdrowAmount = document.getElementById('withdrowAmount').value;
+            const DepositNumber = parseFloat(withdrowAmount);
+
+            updateSpan('currentWithdrow', DepositNumber);
+            updateSpan('currentBalance',-1* DepositNumber);
+            document.getElementById('withdrowAmount').value = '';
+
+        })
+
+        function updateSpan(id, DepositNumber) {
+            const currentBalance = document.getElementById(id).innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = currentBalanceNumber + DepositNumber;
+            document.getElementById(id).innerText = totalBalance;
+        }
+        // const addWithdrow = document.getElementById('addWithdrow');
+        // addWithdrow.addEventListener('click', function () {
+        //     const withdrowAmount = document.getElementById('withdrowAmount').value;
+        //     const DepositNumber = parseFloat(withdrowAmount);
+
+
+        //     document.getElementById('withdrowAmount').value = '';
+        // })
+
+    </script>
+</body>
+
+</html>
